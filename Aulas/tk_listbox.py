@@ -6,7 +6,14 @@ def selecao():
 
 et2 = Label(janela, text='Qual estado você mora?')
 et2.pack()
-lista = Listbox(janela, width=50, height=5)
+
+frame = Frame(janela)
+scrollbar = Scrollbar(frame, orient=VERTICAL)
+
+lista = Listbox(frame, width=50, height=5, yscrollcommand=scrollbar.set)
+scrollbar.config(command=lista.yview)
+scrollbar.pack(side=RIGHT, fill=Y)
+frame.pack()
 lista.pack()
 
 minhalista=['São Paulo','Rio de Janeio', 'Minas Gerais']
